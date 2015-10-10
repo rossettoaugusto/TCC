@@ -1,0 +1,27 @@
+	/*Selecionar as todas as  unidades de saúde (nome, uf e categoria)
+que estão relacionadas com a notificação (codigo e data notificação) .*/
+select cd_unida, nm_unida, uf_ibge, cod_noti, dt_notif from notificacao inner join unisaude on cod_unin = cd_unida;
+
+/*agrupando*/
+select cd_unida, nm_unida, uf_ibge, cod_noti, dt_notif from notificacao inner join unisaude 
+where cd_unida in (select cod_unin from notificacao);
+
+/*Selecionar todas as localidades (nome,uf,numero habitantes) onde
+possua a informação da localidade na notificação.*/
+SELECT nm_local,uf_ibge,nu_habit FROM localidade inner join notificacao on cd_local = loc_infe is not null;
+
+/*agrupando*/
+SELECT nm_local,uf_ibge,nu_habit FROM localidade inner join notificacao
+where cd_local IN ( SELECT loc_infe FROM notificacao Where loc_infe is
+not null);
+
+/*Selecionar as todas as  unidades de saúde (nome, uf e categoria)
+que não estão relacionadas com a notificação (codigo e data notificação)*/
+
+SELECT  cd_unida,nm_unida,uf_ibge,cod_noti,dt_notif  FROM  unisaude
+left join  notificacao on cd_unida = cod_unin where cod_unin is null ;
+
+/*agrupando*/
+SELECT  cd_unida,nm_unida,uf_ibge,cod_noti,dt_notif  FROM  unisaude
+inner  join  notificacao  where  cd_unida  NOT  IN  (select  cod_unin  from
+notificacao);

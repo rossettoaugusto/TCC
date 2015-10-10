@@ -1,0 +1,17 @@
+WEB
+	OK - Usuario
+	OK - Login/Senha	
+	OK - Pacientes: Nome, Login, Senha
+	OK - Agendamentos: Informa Paciente, Data/Hora, 
+	OK - Lista Agendamentos: Todos Agendamentos pode cancelar.
+
+JSON 
+	OK - Pegar código via login e senha
+	OK - Pegar agendamentos para o paciente
+
+ANDROID
+	OK - Paciente: Usuario e senha
+	OK - Lista com agendamentos
+	OK - Data avisa agendamento
+	OK - Avisa cancelamento
+	OK - Busca diária dos canceladas e agendamentos
